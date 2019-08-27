@@ -160,3 +160,77 @@ function someRecursive(array, callback){
 }
 
 console.log(someRecursive([4,6,8,9], isOdd)); */
+
+
+/* function flatten(arr){
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++){
+        if(Array.isArray(arr[i])){
+            newArr = newArr.concat(flatten(arr[i]));
+        }else{
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+}
+
+
+console.log(flatten([1, 2, 3, 4, 5])); */ // [1, 2, 3, 4, 5]
+
+/* 
+function productOfArray(arr){
+    if(arr.length === 0){
+        return 1;
+    }
+    return arr[0] * productOfArray(arr.slice(1));
+}
+
+console.log(productOfArray([1,2,3,10]));  */
+
+
+
+/* function recursiveRange(num){
+    if(num === 0){
+        return 0;
+    }
+    return num + recursiveRange(num-1);
+}                           
+
+
+console.log(recursiveRange(6)); */ // 21
+
+// function fib(n){
+//     if (n <= 2) return 1;
+//     return fib(n-1) + fib(n-2);
+//        return fib(4-1) + fib(3-2)
+//             return fib(3-1) + fib(1)
+//                 return fib(2) + fib(1)
+//                     return 2
+// }
+
+// console.log(fib(4)); // 3
+
+
+
+function capitalizeFirst (arr, newArr = []) {
+    if(arr.length === 0) return newArr;
+    const newChar = arr[0][0].toUpperCase() + arr[0].slice(1);
+    return capitalizeFirst(arr.slice(1), [...newArr, newChar]);
+  }
+
+
+
+console.log(capitalizeFirst(['car','taco','banana'])); // ['Car','Taco','Banana']
+
+
+function capitalizeFirst(arr) {
+    let newArray = [];
+    if (arr.length === 0) {
+      return newArray;
+    }
+    newArray.push(arr[0][0].toUpperCase() + arr[0].slice(1));
+   
+    newArray = newArray.concat(capitalizeFirst(arr.slice(1)));
+    return newArray;
+  }
+  console.log(capitalizeFirst(['first', 'second']));
