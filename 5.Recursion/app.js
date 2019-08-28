@@ -212,7 +212,7 @@ console.log(recursiveRange(6)); */ // 21
 
 
 
-function capitalizeFirst (arr, newArr = []) {
+/* function capitalizeFirst (arr, newArr = []) {
     if(arr.length === 0) return newArr;
     const newChar = arr[0][0].toUpperCase() + arr[0].slice(1);
     return capitalizeFirst(arr.slice(1), [...newArr, newChar]);
@@ -221,16 +221,53 @@ function capitalizeFirst (arr, newArr = []) {
 
 
 console.log(capitalizeFirst(['car','taco','banana'])); // ['Car','Taco','Banana']
+ */
 
-
-function capitalizeFirst(arr) {
+/* function capitalizeFirst(arr) {
     let newArray = [];
     if (arr.length === 0) {
       return newArray;
     }
+    
     newArray.push(arr[0][0].toUpperCase() + arr[0].slice(1));
-   
+
     newArray = newArray.concat(capitalizeFirst(arr.slice(1)));
     return newArray;
   }
-  console.log(capitalizeFirst(['first', 'second']));
+  console.log(capitalizeFirst(['first', 'second'])); */
+
+  let obj1 = {
+    outer: 2,
+    obj: {
+      inner: 2,
+      otherObj: {
+        superInner: 2,
+        notANumber: true,
+        alsoNotANumber: "yup"
+      }
+    }
+  };
+  
+  let obj2 = {
+    a: 2,
+    b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+    c: {c: {c: 2}, cc: 'ball', ccc: 5},
+    d: 1,
+    e: {e: {e: 2}, ee: 'car'}
+  };
+
+  function nestedEvenSum (obj, sum=0) {
+    for (var key in obj) {
+        if (typeof obj[key] === 'object'){
+                
+            sum += nestedEvenSum(obj[key]);
+
+        } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0){
+            sum += obj[key];
+        }
+    }
+    return sum;
+}
+  
+
+console.log(nestedEvenSum(obj1));
