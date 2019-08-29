@@ -241,8 +241,8 @@ console.log(capitalizeFirst(['car','taco','banana'])); // ['Car','Taco','Banana'
     obj: {
       inner: 2,
       otherObj: {
-        superInner: 2,
-        notANumber: true,
+          superInner: 2,
+          notANumber: true,
         alsoNotANumber: "yup"
       }
     }
@@ -256,18 +256,15 @@ console.log(capitalizeFirst(['car','taco','banana'])); // ['Car','Taco','Banana'
     e: {e: {e: 2}, ee: 'car'}
   };
 
-  function nestedEvenSum (obj, sum=0) {
-    for (var key in obj) {
-        if (typeof obj[key] === 'object'){
-                
-            sum += nestedEvenSum(obj[key]);
 
-        } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0){
+function nestedEvenSum(obj, sum=0){
+    for(let key in obj){
+        if(typeof obj[key] === 'object'){
+            sum += nestedEvenSum(obj[key]);
+        }else if(typeof obj[key] === 'number' && obj[key] % 2 === 0){
             sum += obj[key];
         }
     }
     return sum;
 }
-  
-
-console.log(nestedEvenSum(obj1));
+console.log(nestedEvenSum(obj1))
