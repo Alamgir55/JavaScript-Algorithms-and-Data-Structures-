@@ -23,12 +23,12 @@ countDown(5); */
 
 // Recursive Function
 
-// function sumRange(num){
-//     if(num === 1) return 1;
-//     return num + sumRange(num-1);
-// }
+/* function sumRange(num){
+    if(num === 1) return 1;
+    return num + sumRange(num-1);
+}
 
-// console.log(sumRange(5));
+console.log(sumRange(5)); */
 
     //Non-Recursive Function
 /* function factorial(num){
