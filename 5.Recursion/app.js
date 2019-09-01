@@ -236,7 +236,7 @@ console.log(capitalizeFirst(['car','taco','banana'])); // ['Car','Taco','Banana'
   }
   console.log(capitalizeFirst(['first', 'second'])); */
 
-  let obj1 = {
+/*   let obj1 = {
     outer: 2,
     obj: {
       inner: 2,
@@ -267,4 +267,63 @@ function nestedEvenSum(obj, sum=0){
     }
     return sum;
 }
-console.log(nestedEvenSum(obj1))
+console.log(nestedEvenSum(obj1)) */
+
+
+
+
+// let words = ['i', 'am', 'learning', 'recursion'];
+// capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
+
+/* let array = ['i', 'am', 'learning', 'recursion'];
+
+function capitalizedWords(arr){
+    if(arr.length == 0) return [];
+    return [arr[0].toUpperCase()].concat(capitalizedWords(arr.slice(1)));
+}
+
+function stringifyNumbers(obj) {
+    var newObj = {};
+    for (var key in obj) {
+      if (typeof obj[key] === 'number') {
+        newObj[key] = obj[key].toString();
+      } else if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+        newObj[key] = stringifyNumbers(obj[key]);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+    return newObj;
+}
+console.log(capitalizedWords(array));
+ */
+
+let obj = {
+    num: 1,
+    test: [],
+    data: {
+        val: 4,
+        info: {
+            isRight: true,
+            random: 66
+        }
+    }
+}
+console.log(obj)
+
+function stringifyNumbers(obj){
+    let newObj = {};
+    for(let key in obj){
+        if(typeof obj[key] === 'number'){
+            newObj[key] = obj[key].toString();
+        }else if(typeof obj[key] === 'object' && !Array.isArray(obj[key])){
+            newObj[key] = stringifyNumbers(obj[key]);
+        }else{
+            newObj[key] = obj[key];
+        }
+    }
+    return newObj;
+}
+
+
+console.log(stringifyNumbers(obj));
