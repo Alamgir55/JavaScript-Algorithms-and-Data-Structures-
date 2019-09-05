@@ -35,7 +35,7 @@ function binarySearch(arr, elem){
 }
 
 binarySearch([2,3,4,6,8,9,12,15,18,20], 15); */
-              
+ /*              
 
 function binarySearch(arr, val){
    let start = 0;
@@ -63,3 +63,26 @@ console.log(binarySearch([20,26,28,30,34,38,39,40,43,47,49,52,58], 34));
                 //                       s      m        e
                     // [20,26,28,30,34,38,39,40,43,47,49,52,58]
                     //                                s  m  e
+
+     */
+    
+
+   function navieSearch(long, short){
+        let count = 0;
+        for(let i = 0; i < long.length; i++){
+            for(let j = 0; j < short.length; j++){
+                console.log(short[j], long[i+j]);
+                if(short[j] !== long[i+j]){
+                    console.log('Break');
+                    break;
+                }
+                if(j === short.length - 1){
+                    console.log("Found One");
+                    count++;
+                }
+            }
+        }
+        return count;
+   }
+
+   console.log(navieSearch("lorie loled", "lol"));
