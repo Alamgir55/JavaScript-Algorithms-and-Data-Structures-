@@ -67,22 +67,19 @@ console.log(binarySearch([20,26,28,30,34,38,39,40,43,47,49,52,58], 34));
      */
     
 
-   function navieSearch(long, short){
+
+    function naviveSearch(long, short){
         let count = 0;
         for(let i = 0; i < long.length; i++){
             for(let j = 0; j < short.length; j++){
-                console.log(short[j], long[i+j]);
                 if(short[j] !== long[i+j]){
-                    console.log('Break');
                     break;
                 }
                 if(j === short.length - 1){
-                    console.log("Found One");
-                    count++;
+                    count++
                 }
             }
         }
         return count;
-   }
-
-   console.log(navieSearch("lorie loled", "lol"));
+    }
+    console.log(naviveSearch("lorie loled", "lol"));     
