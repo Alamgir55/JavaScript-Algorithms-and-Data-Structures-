@@ -11,8 +11,9 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "runtimeExecutable": "stable",
-      "program": "${workspaceFolder}"
+      "program": "${workspaceRoot}/src/cmd/prog/",
+      "args": [""],
+      "runtimeExecutable": "${workspaceFolder}//",
 
     }
   ]
