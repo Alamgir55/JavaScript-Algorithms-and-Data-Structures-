@@ -25,9 +25,37 @@ class DoublyLinkList{
     this.length++
     return this
   }
+
+  pop(){
+    if(!this.head) return undefined
+    var poppedNode = this.tail
+    if(this.length === 1){
+      this.head = null
+      this.tail = null
+    }else {
+      this.tail = poppedNode.prev
+      this.tail.next = null
+      poppedNode.prev = null 
+    }
+    this.length--
+    return poppedNode
+  }
+  shift(){
+    if(this.length === 0) return undefined
+    var oldHead = this.head
+    if(this.head === 1){
+      this.head = null
+      this.tail = null
+    }else{
+      this.head = oldHead.next
+      this.head.prev = null
+      oldHead.next = null
+    }
+  }
 }
 
 list = new DoublyLinkList()
 list.push(99)
 list.push(100)
 list.push("LAST ITEM")
+list.pop()
