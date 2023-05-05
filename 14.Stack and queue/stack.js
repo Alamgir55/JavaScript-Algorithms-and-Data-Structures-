@@ -32,7 +32,7 @@ class Stack{
     }
     this.first = this.first.next
     this.size--
-    return temp.val
+    return temp.value
   }
 }
 
