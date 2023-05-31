@@ -31,17 +31,31 @@ class HashTable {
     }
   }
   values(){
-    let valueArr = []
+   let valueArr = []
     for(let i = 0; i < this.keyMap.length; i++){
       if(this.keyMap[i]){
-        for(let j = 0; j < this.keyMap[i].length; j++){
+        for(let j = 0; j < this.keyMap[i]; j++){
           if(!valueArr.includes(this.keyMap[i][j][1])){
-            return valueArr.push(this.keyMap[i][j][1])
+            valueArr.push(this.keyMap[i][j][1])
           }
         }
       }
     }
     return valueArr
+  }
+
+  keys(){
+    const keysArr = []
+    for(let i = 0; i < this.keyMap.length; i++){
+      if(this.keyMap[i]){
+        for(let j = 0; j < this.keyMap[i]; j++){
+          if(!keysArr.includes(this.keyMap[i][j][0])){
+            keysArr.push(this.keyMap[i][j][0])
+          }
+        }
+      }
+    }
+    return keysArr
   }
 }
 
@@ -56,5 +70,9 @@ ht.set("plum","#DDA0DD")
 
 ht.get('olive')
 
+ht.values()
+console.log(ht.values())
 
-console.log(ht.get('olive'))
+ht.keys().forEach(function(key){
+  console.log(ht.get(key))
+})
